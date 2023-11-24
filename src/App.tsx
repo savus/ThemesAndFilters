@@ -7,6 +7,19 @@ function App() {
 
   return (
     <>
+      <div className="theme-panel">
+        <div className="theme-body">
+          <span>Change Theme</span>
+          <div className="btn-group">
+            <button>Light</button>
+            <button>Dark</button>
+          </div>
+          <button>
+            <i className="fas fa-chevron-left"></i>
+          </button>
+        </div>
+      </div>
+
       <main className="main-section">
         <header className="main-header">
           <nav className="navbar">
