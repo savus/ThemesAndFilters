@@ -14,7 +14,7 @@ function App() {
             <button className="switcher-btn active">Light</button>
             <button className="switcher-btn">Dark</button>
           </div>
-          <button>
+          <button className="theme-tab">
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
