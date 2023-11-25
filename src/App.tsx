@@ -7,12 +7,12 @@ function App() {
 
   return (
     <>
-      <div className="theme-panel">
+      <div className="theme-panel open">
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
-            <button>Light</button>
-            <button>Dark</button>
+            <button className="switcher-btn active">Light</button>
+            <button className="switcher-btn">Dark</button>
           </div>
           <button>
             <i className="fas fa-chevron-left"></i>
