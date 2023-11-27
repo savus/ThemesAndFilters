@@ -4,17 +4,21 @@ import "./css/theme.css";
 import "./css/styles.css";
 
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
-      <div className="theme-panel open">
+      <div id="theme-toggle" className={`theme-panel ${(isOpen ? "open" : "")}`}>
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
             <button className="switcher-btn active">Light</button>
             <button className="switcher-btn">Dark</button>
           </div>
-          <button className="theme-tab">
+          <button className="theme-tab" onClick={() => {
+              if (isOpen) return setIsOpen(false);
+              return setIsOpen(true);
+          }}>
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
