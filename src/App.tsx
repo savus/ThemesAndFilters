@@ -1,24 +1,50 @@
-import { useState } from 'react';
+import { useState } from "react";
 import "./css/base.css";
 import "./css/theme.css";
 import "./css/styles.css";
+import { TActiveTab, open } from "./types";
+
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
+  const [openState, setIsOpenState] = useState<open>("");
+  const [activeTabState, setActiveTabState] = useState<TActiveTab>("light");
+  const root = document.documentElement;
   return (
     <>
-      <div id="theme-toggle" className={`theme-panel ${(isOpen ? "open" : "")}`}>
+      <div id="theme-toggle" className={`theme-panel ${openState}`}>
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
-            <button className="switcher-btn active">Light</button>
-            <button className="switcher-btn">Dark</button>
+            <button
+              className={`switcher-btn ${
+                activeTabState === "light" ? "active" : ""
+              }`}
+              onClick={() => {
+                setActiveTabState("light");
+                root.setAttribute("data-theme", activeTabState);
+              }}
+            >
+              Light
+            </button>
+            <button
+              className={`switcher-btn ${
+                activeTabState === "dark" ? "active" : ""
+              }`}
+              onClick={() => {
+                setActiveTabState("dark");
+                root.setAttribute("data-theme", activeTabState);
+              }}
+            >
+              Dark
+            </button>
           </div>
-          <button className="theme-tab" onClick={() => {
-              if (isOpen) return setIsOpen(false);
-              return setIsOpen(true);
-          }}>
+          <button
+            className="theme-tab"
+            onClick={() => {
+              if (openState === "open") return setIsOpenState("");
+              return setIsOpenState("open");
+            }}
+          >
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
@@ -37,7 +63,7 @@ function App() {
         </header>
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
