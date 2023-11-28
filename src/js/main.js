@@ -19,4 +19,10 @@ toggleTheme.addEventListener('click', function() {
     const tab = document.getElementById(tabId);
     if (!tab.className.includes(open)) tab.classList.add(open);
     else tab.classList.remove(open);
-})
+});
+
+for (const elm of switcher) {
+    elm.addEventListener('click', function() {
+        
+    })
+}
