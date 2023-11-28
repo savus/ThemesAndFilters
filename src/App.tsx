@@ -1,50 +1,18 @@
-import { useState } from "react";
 import "./css/base.css";
 import "./css/theme.css";
 import "./css/styles.css";
-import { TActiveTab, open } from "./types";
-
 
 function App() {
-  const [openState, setIsOpenState] = useState<open>("");
-  const [activeTabState, setActiveTabState] = useState<TActiveTab>("light");
-  const root = document.documentElement;
   return (
     <>
-      <div id="theme-toggle" className={`theme-panel ${openState}`}>
+      <div id="theme-toggle" className={`theme-panel`}>
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
-            <button
-              className={`switcher-btn ${
-                activeTabState === "light" ? "active" : ""
-              }`}
-              onClick={() => {
-                setActiveTabState("light");
-                root.setAttribute("data-theme", activeTabState);
-              }}
-            >
-              Light
-            </button>
-            <button
-              className={`switcher-btn ${
-                activeTabState === "dark" ? "active" : ""
-              }`}
-              onClick={() => {
-                setActiveTabState("dark");
-                root.setAttribute("data-theme", activeTabState);
-              }}
-            >
-              Dark
-            </button>
+            <button className={`switcher-btn`} data-toggle="light">Light</button>
+            <button className={`switcher-btn`} data-toggle="dark">Dark</button>
           </div>
-          <button
-            className="theme-tab"
-            onClick={() => {
-              if (openState === "open") return setIsOpenState("");
-              return setIsOpenState("open");
-            }}
-          >
+          <button className="theme-tab">
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
