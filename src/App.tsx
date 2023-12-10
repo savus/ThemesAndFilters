@@ -1,24 +1,18 @@
-import { useState } from 'react';
 import "./css/base.css";
 import "./css/theme.css";
 import "./css/styles.css";
 
 function App() {
-  const [isOpen, setIsOpen] = useState(false);
-
   return (
     <>
-      <div id="theme-toggle" className={`theme-panel ${(isOpen ? "open" : "")}`}>
+      <div id="theme-toggle" className={`theme-panel`}>
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
-            <button className="switcher-btn active">Light</button>
-            <button className="switcher-btn">Dark</button>
+            <button className={`switcher-btn`} data-toggle="light">Light</button>
+            <button className={`switcher-btn`} data-toggle="dark">Dark</button>
           </div>
-          <button className="theme-tab" onClick={() => {
-              if (isOpen) return setIsOpen(false);
-              return setIsOpen(true);
-          }}>
+          <button className="theme-tab">
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
@@ -37,7 +31,7 @@ function App() {
         </header>
       </main>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

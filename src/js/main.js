@@ -1,35 +1,84 @@
-const theme = "theme";
-const dataTheme = "data-theme";
-const themeTab = ".theme-tab";
-const switcherBtn = ".switcher-btn";
-const dark = "dark";
-const light = "light";
-const open = "open";
-const active = "active";
-const tabId = "theme-toggle";
+document.addEventListener("DOMContentLoaded", function () {
+  const theme = "theme";
+  const dataTheme = "data-theme";
+  const themeTab = ".theme-tab";
+  const switcherBtn = ".switcher-btn";
+  const dark = "dark";
+  const light = "light";
+  const open = "open";
+  const active = "active";
+  const tabId = "theme-toggle";
 
-const root = document.documentElement;
+  const root = document.documentElement;
+  /* theme */
 
-/* theme */
-const toggleTheme = document.querySelector(themeTab);
-const switcher = document.querySelectorAll(switcherBtn);
-const currentTheme = localStorage.getItem(theme);
+  const toggleTheme = document.querySelector(themeTab);
+  const switcher = document.querySelectorAll(switcherBtn);
 
-toggleTheme.addEventListener("click", function () {
-  const tab = document.getElementById(tabId);
-  if (!tab.className.includes(open)) tab.classList.add(open);
-  else tab.classList.remove(open);
-});
+  toggleTheme.addEventListener("click", function () {
+    const tab = document.getElementById(tabId);
 
-const setActive = (element, selector) => {
-  if (document.querySelector(`${selector}.${active}`) !== null)
-    document.querySelector(`${selector}.${active}`).classList.remove(active);
-  element.classList.add(active);
-};
-
-for (const elm of switcher) {
-  elm.addEventListener("click", function () {
-    setActive(elm, switcherBtn);
-    console.log("clicked");
+    if (tab.className.includes(open)) tab.classList.remove(open);
+    else tab.classList.add(open);
   });
-}
+
+  const setActive = (element, selector) => {
+    if (document.querySelector(`${selector}.${active}`) !== null)
+      document.querySelector(`${selector}.${active}`).classList.remove(active);
+    element.classList.add(active);
+  };
+
+  const setTheme = (val) => {
+    if (val === dark) {
+      root.setAttribute(dataTheme, dark);
+      localStorage.setItem(theme, dark);
+    } else {
+      root.setAttribute(dataTheme, light);
+      localStorage.setItem(theme, light);
+    }
+  };
+
+  for (const elm of switcher) {
+    elm.addEventListener("click", function () {
+      const toggle = this.dataset.toggle;
+      setActive(elm, switcherBtn);
+      setTheme(toggle);
+    });
+  }
+
+  // const toggleTheme = document.querySelector(themeTab);
+  // const switcher = document.querySelectorAll(switcherBtn);
+  // const currentTheme = localStorage.getItem(theme);
+
+  // const setActive = (element, selector) => {
+  //   if (document.querySelector(`${selector}.${active}`) !== null) {
+  //     document.querySelector(`${selector}.${active}`).classList.remove(active);
+  //   } else {
+  //     element.classList.add(active);
+  //   }
+  // };
+
+  // const setTheme = (val) => {
+  //   if (val === dark) {
+  //     root.setAttribute(dataTheme, dark);
+  //     localStorage.setItem(theme, dark);
+  //   } else {
+  //     root.setAttribute(dataTheme, light);
+  //     localStorage.setItem(theme, light);
+  //   }
+  // };
+
+  // toggleTheme.addEventListener("click", function () {
+  //   const tab = document.getElementById(tabId);
+  //   if (!tab.className.includes(open)) tab.classList.add(open);
+  //   else tab.classList.remove(open);
+  // });
+
+  // for (const elm of switcher) {
+  //   elm.addEventListener("click", function () {
+  //     const toggle = this.dataset.toggle;
+  //     setActive(elm, switcherBtn);
+  //     setTheme(toggle);
+  //   });
+  // }
+});
