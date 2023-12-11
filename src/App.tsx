@@ -2,22 +2,49 @@ import "./css/base.css";
 import "./css/theme.css";
 import "./css/styles.css";
 import { portfolioPictures } from "./portfolio-pictures";
-
+import { useState } from "react";
+import { TActiveTab, TFilterLinkState, open } from "./types";
 function App() {
+  const [tabOpenState, setTabOpenState] = useState<open>("");
+  const [switcherActive, setSwitcherActive] = useState<TActiveTab>("light");
+  const [filterLinkState, setFilterLinkState] =
+    useState<TFilterLinkState>("all");
   return (
     <>
-      <div id="theme-toggle" className={`theme-panel`}>
+      <div id="theme-toggle" className={`theme-panel ${tabOpenState}`}>
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
-            <button className={`switcher-btn`} data-toggle="light">
+            <button
+              className={`switcher-btn ${
+                switcherActive === "light" ? "active" : ""
+              }`}
+              data-toggle="light"
+              onClick={() => {
+                setSwitcherActive("light");
+              }}
+            >
               Light
             </button>
-            <button className={`switcher-btn`} data-toggle="dark">
+            <button
+              className={`switcher-btn ${
+                switcherActive === "dark" ? "active" : ""
+              }`}
+              data-toggle="dark"
+              onClick={() => {
+                setSwitcherActive("dark");
+              }}
+            >
               Dark
             </button>
           </div>
-          <button className="theme-tab">
+          <button
+            className="theme-tab"
+            onClick={() => {
+              if (tabOpenState === "open") return setTabOpenState("");
+              return setTabOpenState("open");
+            }}
+          >
             <i className="fas fa-chevron-left"></i>
           </button>
         </div>
