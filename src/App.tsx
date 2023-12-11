@@ -9,8 +9,12 @@ function App() {
         <div className="theme-body">
           <span>Change Theme</span>
           <div className="btn-group">
-            <button className={`switcher-btn`} data-toggle="light">Light</button>
-            <button className={`switcher-btn`} data-toggle="dark">Dark</button>
+            <button className={`switcher-btn`} data-toggle="light">
+              Light
+            </button>
+            <button className={`switcher-btn`} data-toggle="dark">
+              Dark
+            </button>
           </div>
           <button className="theme-tab">
             <i className="fas fa-chevron-left"></i>
@@ -29,6 +33,22 @@ function App() {
             </ul>
           </nav>
         </header>
+
+        <section className="portfolio-section container">
+          <div className="filter-links">
+            <div className="search-container">
+              <input type="text" placeholder="Search..." />
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <ul className="ul-defaults-none filter-nav">
+              <li className="filter-link active">All</li>
+              <li className="filter-link">Web Development</li>
+              <li className="filter-link">App Development</li>
+              <li className="filter-link">UI design</li>
+            </ul>
+          </div>
+          <div className="portfolio-grid"></div>
+        </section>
       </main>
     </>
   );
