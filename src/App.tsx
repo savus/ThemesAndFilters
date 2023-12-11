@@ -1,6 +1,7 @@
 import "./css/base.css";
 import "./css/theme.css";
 import "./css/styles.css";
+import { portfolioPictures } from "./portfolio-pictures";
 
 function App() {
   return (
@@ -47,7 +48,62 @@ function App() {
               <li className="filter-link">UI design</li>
             </ul>
           </div>
-          <div className="portfolio-grid"></div>
+          <div className="portfolio-grid">
+            <div className="portfolio-card">
+              <div className="card-body">
+                <img src={portfolioPictures.Portfolio1} alt="" />
+                <a href="#" className="popup-box">
+                  <div>Web Devlopment</div>
+                  <h3>Food Website</h3>
+                </a>
+              </div>
+            </div>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <img src={portfolioPictures.Portfolio1} alt="" />
+                <a href="#" className="popup-box">
+                  <div>Web Devlopment</div>
+                  <h3>Food Website</h3>
+                </a>
+              </div>
+            </div>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <img src={portfolioPictures.Portfolio1} alt="" />
+                <a href="#" className="popup-box">
+                  <div>Web Devlopment</div>
+                  <h3>Food Website</h3>
+                </a>
+              </div>
+            </div>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <img src={portfolioPictures.Portfolio1} alt="" />
+                <a href="#" className="popup-box">
+                  <div>Web Devlopment</div>
+                  <h3>Food Website</h3>
+                </a>
+              </div>
+            </div>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <img src={portfolioPictures.Portfolio1} alt="" />
+                <a href="#" className="popup-box">
+                  <div>Web Devlopment</div>
+                  <h3>Food Website</h3>
+                </a>
+              </div>
+            </div>
+            <div className="portfolio-card">
+              <div className="card-body">
+                <img src={portfolioPictures.Portfolio1} alt="" />
+                <a href="#" className="popup-box">
+                  <div>Web Devlopment</div>
+                  <h3>Food Website</h3>
+                </a>
+              </div>
+            </div>
+          </div>
         </section>
       </main>
     </>
