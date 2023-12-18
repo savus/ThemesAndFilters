@@ -1,4 +1,4 @@
-import { portfolioPictures } from "../portfolio-pictures";
+import { PortfolioSection } from "./PortfolioSection";
 import { useTheme } from "./providers/ThemeProvider";
 
 export const MainSection = () => {
@@ -17,76 +17,7 @@ export const MainSection = () => {
           </nav>
         </header>
 
-        <section className="portfolio-section container">
-          <div className="filter-links">
-            <div className="search-container">
-              <input type="text" placeholder="Search..." />
-              <i className="fa-solid fa-magnifying-glass"></i>
-            </div>
-            <ul className="ul-defaults-none filter-nav">
-              <li className="filter-link active">All</li>
-              <li className="filter-link">Web Development</li>
-              <li className="filter-link">App Development</li>
-              <li className="filter-link">UI design</li>
-            </ul>
-          </div>
-          <div className="portfolio-grid">
-            <div className="portfolio-card">
-              <div className="card-body">
-                <img src={portfolioPictures.Portfolio1} alt="" />
-                <a href="#" className="popup-box">
-                  <div>Web Development</div>
-                  <h3>Food Website</h3>
-                </a>
-              </div>
-            </div>
-            <div className="portfolio-card">
-              <div className="card-body">
-                <img src={portfolioPictures.Portfolio1} alt="" />
-                <a href="#" className="popup-box">
-                  <div>Web Development</div>
-                  <h3>Food Website</h3>
-                </a>
-              </div>
-            </div>
-            <div className="portfolio-card">
-              <div className="card-body">
-                <img src={portfolioPictures.Portfolio1} alt="" />
-                <a href="#" className="popup-box">
-                  <div>Web Development</div>
-                  <h3>Food Website</h3>
-                </a>
-              </div>
-            </div>
-            <div className="portfolio-card">
-              <div className="card-body">
-                <img src={portfolioPictures.Portfolio1} alt="" />
-                <a href="#" className="popup-box">
-                  <div>Web Development</div>
-                  <h3>Food Website</h3>
-                </a>
-              </div>
-            </div>
-            <div className="portfolio-card">
-              <div className="card-body">
-                <img src={portfolioPictures.Portfolio1} alt="" />
-                <a href="#" className="popup-box">
-                  <div>Web Development</div>
-                  <h3>Food Website</h3>
-                </a>
-              </div>
-            </div>
-            <div className="portfolio-card">
-              <div className="card-body">
-                <img src={portfolioPictures.Portfolio1} alt="" />
-                <a href="#" className="popup-box">
-                  <div>Web Development</div>
-                  <h3>Food Website</h3>
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
+        <PortfolioSection />
       </main>
     </>
   );

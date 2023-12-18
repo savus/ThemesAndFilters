@@ -5,7 +5,8 @@
   --color-text-opacity: rgba(22, 28, 45, 0.7);
   --color-text: #161c2d;
   --color-text-base: #161c2d;
-  --border: #383f53;
+  --border: rgba(0, 0, 0, 0.8);
+  --box-shadow: rgba(0, 0, 0, 0.7);
 }
 
 [data-theme="dark"] {
@@ -15,5 +16,6 @@
   --color-text-opacity: rgba(255, 255, 255, 0.7);
   --color-text: #fff;
   --color-text-base: #161c2d;
-  --border: #ced4da;
+  --border: rgba(255, 255, 255, 1);
+  --box-shadow: rgba(225, 255, 255, 0.7);
 }
