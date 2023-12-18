@@ -1,55 +1,18 @@
 import { Component } from "react";
-import { TFilterLinkState } from "../types";
+import { FilterLink } from "./FilterLink";
+import { FilterLinkProvider } from "../components/providers/FilterLinkProvider";
 
-export class FilterNav extends Component<{
-  filterLinkState: TFilterLinkState;
-  setFilterLinkState: (filterLinkState: TFilterLinkState) => void;
-}> {
+export class FilterNav extends Component {
   render() {
-    const { filterLinkState, setFilterLinkState } = this.props;
     return (
       <>
         <ul className="ul-defaults-none filter-nav">
-          <li
-            className={`filter-link ${
-              filterLinkState === "all" ? "active" : ""
-            }`}
-            onClick={() => {
-              setFilterLinkState("all");
-            }}
-          >
-            All
-          </li>
-          <li
-            className={`filter-link ${
-              filterLinkState === "web" ? "active" : ""
-            }`}
-            onClick={() => {
-              setFilterLinkState("web");
-            }}
-          >
-            Web Development
-          </li>
-          <li
-            className={`filter-link ${
-              filterLinkState === "app" ? "active" : ""
-            }`}
-            onClick={() => {
-              setFilterLinkState("app");
-            }}
-          >
-            App Development
-          </li>
-          <li
-            className={`filter-link ${
-              filterLinkState === "ui" ? "active" : ""
-            }`}
-            onClick={() => {
-              setFilterLinkState("ui");
-            }}
-          >
-            UI design
-          </li>
+          <FilterLinkProvider>
+            <FilterLink text="All" filterState="all" />
+            <FilterLink text="Web Deveopment" filterState="web" />
+            <FilterLink text="App Development" filterState="app" />
+            <FilterLink text="UI Design" filterState="ui" />
+          </FilterLinkProvider>
         </ul>
       </>
     );
