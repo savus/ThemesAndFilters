@@ -8,10 +8,10 @@ export class FilterNav extends Component {
       <>
         <ul className="ul-defaults-none filter-nav">
           <FilterLinkProvider>
-            <FilterLink text="All" filterState="all" />
-            <FilterLink text="Web Deveopment" filterState="web" />
-            <FilterLink text="App Development" filterState="app" />
-            <FilterLink text="UI Design" filterState="ui" />
+            <FilterLink text="All" linkName="all" />
+            <FilterLink text="Web Deveopment" linkName="web" />
+            <FilterLink text="App Development" linkName="app" />
+            <FilterLink text="UI Design" linkName="ui" />
           </FilterLinkProvider>
         </ul>
       </>

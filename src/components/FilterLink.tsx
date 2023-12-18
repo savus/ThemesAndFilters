@@ -3,20 +3,21 @@ import { useFilter } from "./providers/FilterLinkProvider";
 
 export const FilterLink = ({
   text,
-  filterState,
+  linkName,
 }: {
   text: string;
-  filterState: TFilterLinkState;
+  linkName: TFilterLinkState;
 }) => {
   const { filterLinkState, setFilterLinkState } = useFilter();
   return (
     <>
       <li
         className={`filter-link ${
-          filterLinkState === filterState ? "active" : ""
+          filterLinkState === linkName ? "active" : ""
         }`}
+        data-link={linkName}
         onClick={() => {
-          setFilterLinkState(filterState);
+          setFilterLinkState(linkName);
         }}
       >
         {text}
